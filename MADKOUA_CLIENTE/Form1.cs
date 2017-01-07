@@ -32,7 +32,10 @@ namespace MADKOUA_CLIENTE
             tabela.Columns.Add("Editora", typeof(String));
 
             apresenta(TBPesquisa.Text);
-            
+
+            DGVLivros.Columns[0].Width = DGVLivros.Width / 3 - 14;
+            DGVLivros.Columns[1].Width = DGVLivros.Width / 3 - 14;
+            DGVLivros.Columns[2].Width = DGVLivros.Width / 3 - 15;
         }
 
         private void apresenta(String pesquisa)
@@ -55,7 +58,7 @@ namespace MADKOUA_CLIENTE
         private void TBPesquisa_TextChanged(object sender, EventArgs e)
         {
 
-            apresenta(TBPesquisa.Text);
+            apresenta("");
                                   
             
 
