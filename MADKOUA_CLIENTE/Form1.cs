@@ -37,7 +37,7 @@ namespace MADKOUA_CLIENTE
             tabela.Columns.Add("Titulo", typeof(String));
             tabela.Columns.Add("Autor", typeof(String));
             tabela.Columns.Add("Editora", typeof(String));
-
+          
             apresenta("");
 
             DGVLivros.Columns[0].Width = 30;
@@ -49,6 +49,8 @@ namespace MADKOUA_CLIENTE
         #region Metodos
 
         public void SetRequisitante(String codigoUtilizador) { requisitante.SetByCodigoUtilizador(codigoUtilizador); }
+
+        public int GetRequisitanteID() { return requisitante.ID; }
 
         public void SetRequisitanteSelecionado(bool estado)
         {
@@ -150,19 +152,18 @@ namespace MADKOUA_CLIENTE
             }            
         }
 
-
-
-        #endregion
-
         private void BTN_Login_Click(object sender, EventArgs e)
         {
             LoginUtilizador_Form loginUtilizador = new LoginUtilizador_Form(this);
-            loginUtilizador.Show();                        
+            loginUtilizador.Show();
         }
 
         private void BTN_Requisicoes_Click(object sender, EventArgs e)
         {
-            
+            RequisicoesForm minhasRequisicoes = new RequisicoesForm(this);
+            minhasRequisicoes.Show();
         }
+        #endregion
+
     }
 }
