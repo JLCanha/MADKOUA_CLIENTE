@@ -166,6 +166,7 @@
             this.BTN_Requisitar.TabIndex = 4;
             this.BTN_Requisitar.Text = "Requisitar";
             this.BTN_Requisitar.UseVisualStyleBackColor = true;
+            this.BTN_Requisitar.Click += new System.EventHandler(this.BTN_Requisitar_Click);
             // 
             // LB_Editora
             // 
