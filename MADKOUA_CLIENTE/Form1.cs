@@ -21,9 +21,12 @@ namespace MADKOUA_CLIENTE
 
         DataTable tabela;
         DataTable livros;
+        Requisitante requisitante;
         int livroSelecionado;
 
         #region Metodos
+
+        public void SetRequisitante(String codigoUtilizador) { requisitante.SetByCodigoUtilizador(codigoUtilizador); }
 
         private void apresenta(String pesquisa)
         {
@@ -64,6 +67,7 @@ namespace MADKOUA_CLIENTE
         {
             livros = Livro.ListaLivros("Titulo", TBPesquisa.Text);
             tabela = new DataTable();
+            requisitante = new Requisitante();
 
             tabela.Columns.Add("ID", typeof(int));
             tabela.Columns.Add("Titulo", typeof(String));
@@ -123,11 +127,17 @@ namespace MADKOUA_CLIENTE
         {
             Livro.DecrementaNLivrosDisp(livroSelecionado);
             AtualizaDisponibilidade();
+            MessageBox.Show(requisitante.Nome);
         }
+
+
 
         #endregion
 
-
-
+        private void BTN_Login_Click(object sender, EventArgs e)
+        {
+            LoginUtilizador_Form loginUtilizador = new LoginUtilizador_Form(this);
+            loginUtilizador.Show();                        
+        }
     }
 }

@@ -43,6 +43,8 @@
             this.LB_Autor = new System.Windows.Forms.Label();
             this.LB_Titulo = new System.Windows.Forms.Label();
             this.TBPesquisa = new System.Windows.Forms.TextBox();
+            this.BTN_Login = new System.Windows.Forms.Button();
+            this.PanelLeft.SuspendLayout();
             this.PanelDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVLivros)).BeginInit();
             this.PanelTop.SuspendLayout();
@@ -51,6 +53,7 @@
             // PanelLeft
             // 
             this.PanelLeft.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.PanelLeft.Controls.Add(this.BTN_Login);
             this.PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeft.Location = new System.Drawing.Point(0, 0);
             this.PanelLeft.Margin = new System.Windows.Forms.Padding(2);
@@ -213,6 +216,17 @@
             this.TBPesquisa.Enter += new System.EventHandler(this.TB_Pesquisa_Enter);
             this.TBPesquisa.Leave += new System.EventHandler(this.TB_Pesquisa_Leave);
             // 
+            // BTN_Login
+            // 
+            this.BTN_Login.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_Login.Location = new System.Drawing.Point(0, 0);
+            this.BTN_Login.Name = "BTN_Login";
+            this.BTN_Login.Size = new System.Drawing.Size(53, 52);
+            this.BTN_Login.TabIndex = 0;
+            this.BTN_Login.Text = "Login";
+            this.BTN_Login.UseVisualStyleBackColor = true;
+            this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +240,7 @@
             this.Name = "MainForm";
             this.Text = "MADKOUA Cliente";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.PanelLeft.ResumeLayout(false);
             this.PanelDGV.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVLivros)).EndInit();
             this.PanelTop.ResumeLayout(false);
@@ -251,6 +266,7 @@
         private System.Windows.Forms.TextBox TB_Descricao;
         private System.Windows.Forms.TextBox TB_Editora;
         private System.Windows.Forms.Label LB_Disponibilidade;
+        private System.Windows.Forms.Button BTN_Login;
     }
 }
 
