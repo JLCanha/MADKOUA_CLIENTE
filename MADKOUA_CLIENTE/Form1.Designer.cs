@@ -32,17 +32,17 @@
             this.PanelDGV = new System.Windows.Forms.Panel();
             this.DGVLivros = new System.Windows.Forms.DataGridView();
             this.PanelTop = new System.Windows.Forms.Panel();
-            this.TBPesquisa = new System.Windows.Forms.TextBox();
-            this.LB_Titulo = new System.Windows.Forms.Label();
-            this.LB_Autor = new System.Windows.Forms.Label();
-            this.LB_Editora = new System.Windows.Forms.Label();
-            this.BTN_Requisitar = new System.Windows.Forms.Button();
-            this.LB_Descricao = new System.Windows.Forms.Label();
-            this.TB_Autor = new System.Windows.Forms.TextBox();
-            this.TB_Titulo = new System.Windows.Forms.TextBox();
-            this.TB_Editora = new System.Windows.Forms.TextBox();
-            this.TB_Descricao = new System.Windows.Forms.TextBox();
             this.LB_Disponibilidade = new System.Windows.Forms.Label();
+            this.TB_Descricao = new System.Windows.Forms.TextBox();
+            this.TB_Editora = new System.Windows.Forms.TextBox();
+            this.TB_Titulo = new System.Windows.Forms.TextBox();
+            this.TB_Autor = new System.Windows.Forms.TextBox();
+            this.LB_Descricao = new System.Windows.Forms.Label();
+            this.BTN_Requisitar = new System.Windows.Forms.Button();
+            this.LB_Editora = new System.Windows.Forms.Label();
+            this.LB_Autor = new System.Windows.Forms.Label();
+            this.LB_Titulo = new System.Windows.Forms.Label();
+            this.TBPesquisa = new System.Windows.Forms.TextBox();
             this.PanelDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVLivros)).BeginInit();
             this.PanelTop.SuspendLayout();
@@ -78,6 +78,7 @@
             this.DGVLivros.RowTemplate.Height = 24;
             this.DGVLivros.Size = new System.Drawing.Size(828, 390);
             this.DGVLivros.TabIndex = 0;
+            this.DGVLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVLivros_CellClick);
             // 
             // PanelTop
             // 
@@ -100,58 +101,51 @@
             this.PanelTop.Size = new System.Drawing.Size(828, 165);
             this.PanelTop.TabIndex = 2;
             // 
-            // TBPesquisa
+            // LB_Disponibilidade
             // 
-            this.TBPesquisa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TBPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPesquisa.Location = new System.Drawing.Point(0, 0);
-            this.TBPesquisa.Margin = new System.Windows.Forms.Padding(2);
-            this.TBPesquisa.Multiline = true;
-            this.TBPesquisa.Name = "TBPesquisa";
-            this.TBPesquisa.Size = new System.Drawing.Size(828, 25);
-            this.TBPesquisa.TabIndex = 0;
-            this.TBPesquisa.Text = "Pesquisa";
-            this.TBPesquisa.TextChanged += new System.EventHandler(this.TBPesquisa_TextChanged);
+            this.LB_Disponibilidade.AutoSize = true;
+            this.LB_Disponibilidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Disponibilidade.Location = new System.Drawing.Point(704, 31);
+            this.LB_Disponibilidade.Name = "LB_Disponibilidade";
+            this.LB_Disponibilidade.Size = new System.Drawing.Size(0, 18);
+            this.LB_Disponibilidade.TabIndex = 12;
             // 
-            // LB_Titulo
+            // TB_Descricao
             // 
-            this.LB_Titulo.AutoSize = true;
-            this.LB_Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Titulo.Location = new System.Drawing.Point(6, 31);
-            this.LB_Titulo.Name = "LB_Titulo";
-            this.LB_Titulo.Size = new System.Drawing.Size(52, 18);
-            this.LB_Titulo.TabIndex = 1;
-            this.LB_Titulo.Text = "Título: ";
+            this.TB_Descricao.Enabled = false;
+            this.TB_Descricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Descricao.Location = new System.Drawing.Point(92, 106);
+            this.TB_Descricao.Multiline = true;
+            this.TB_Descricao.Name = "TB_Descricao";
+            this.TB_Descricao.Size = new System.Drawing.Size(606, 56);
+            this.TB_Descricao.TabIndex = 11;
             // 
-            // LB_Autor
+            // TB_Editora
             // 
-            this.LB_Autor.AutoSize = true;
-            this.LB_Autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Autor.Location = new System.Drawing.Point(6, 57);
-            this.LB_Autor.Name = "LB_Autor";
-            this.LB_Autor.Size = new System.Drawing.Size(51, 18);
-            this.LB_Autor.TabIndex = 2;
-            this.LB_Autor.Text = "Autor: ";
+            this.TB_Editora.Enabled = false;
+            this.TB_Editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Editora.Location = new System.Drawing.Point(92, 80);
+            this.TB_Editora.Name = "TB_Editora";
+            this.TB_Editora.Size = new System.Drawing.Size(606, 24);
+            this.TB_Editora.TabIndex = 10;
             // 
-            // LB_Editora
+            // TB_Titulo
             // 
-            this.LB_Editora.AutoSize = true;
-            this.LB_Editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Editora.Location = new System.Drawing.Point(6, 83);
-            this.LB_Editora.Name = "LB_Editora";
-            this.LB_Editora.Size = new System.Drawing.Size(63, 18);
-            this.LB_Editora.TabIndex = 3;
-            this.LB_Editora.Text = "Editora: ";
+            this.TB_Titulo.Enabled = false;
+            this.TB_Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Titulo.Location = new System.Drawing.Point(92, 28);
+            this.TB_Titulo.Name = "TB_Titulo";
+            this.TB_Titulo.Size = new System.Drawing.Size(606, 24);
+            this.TB_Titulo.TabIndex = 9;
             // 
-            // BTN_Requisitar
+            // TB_Autor
             // 
-            this.BTN_Requisitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Requisitar.Location = new System.Drawing.Point(705, 126);
-            this.BTN_Requisitar.Name = "BTN_Requisitar";
-            this.BTN_Requisitar.Size = new System.Drawing.Size(120, 36);
-            this.BTN_Requisitar.TabIndex = 4;
-            this.BTN_Requisitar.Text = "Requisitar";
-            this.BTN_Requisitar.UseVisualStyleBackColor = true;
+            this.TB_Autor.Enabled = false;
+            this.TB_Autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_Autor.Location = new System.Drawing.Point(92, 54);
+            this.TB_Autor.Name = "TB_Autor";
+            this.TB_Autor.Size = new System.Drawing.Size(606, 24);
+            this.TB_Autor.TabIndex = 8;
             // 
             // LB_Descricao
             // 
@@ -163,47 +157,60 @@
             this.LB_Descricao.TabIndex = 5;
             this.LB_Descricao.Text = "Descrição:";
             // 
-            // TB_Autor
+            // BTN_Requisitar
             // 
-            this.TB_Autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_Autor.Location = new System.Drawing.Point(92, 54);
-            this.TB_Autor.Name = "TB_Autor";
-            this.TB_Autor.Size = new System.Drawing.Size(606, 24);
-            this.TB_Autor.TabIndex = 8;
+            this.BTN_Requisitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Requisitar.Location = new System.Drawing.Point(705, 126);
+            this.BTN_Requisitar.Name = "BTN_Requisitar";
+            this.BTN_Requisitar.Size = new System.Drawing.Size(120, 36);
+            this.BTN_Requisitar.TabIndex = 4;
+            this.BTN_Requisitar.Text = "Requisitar";
+            this.BTN_Requisitar.UseVisualStyleBackColor = true;
             // 
-            // TB_Titulo
+            // LB_Editora
             // 
-            this.TB_Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_Titulo.Location = new System.Drawing.Point(92, 28);
-            this.TB_Titulo.Name = "TB_Titulo";
-            this.TB_Titulo.Size = new System.Drawing.Size(606, 24);
-            this.TB_Titulo.TabIndex = 9;
+            this.LB_Editora.AutoSize = true;
+            this.LB_Editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Editora.Location = new System.Drawing.Point(6, 83);
+            this.LB_Editora.Name = "LB_Editora";
+            this.LB_Editora.Size = new System.Drawing.Size(63, 18);
+            this.LB_Editora.TabIndex = 3;
+            this.LB_Editora.Text = "Editora: ";
             // 
-            // TB_Editora
+            // LB_Autor
             // 
-            this.TB_Editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_Editora.Location = new System.Drawing.Point(92, 80);
-            this.TB_Editora.Name = "TB_Editora";
-            this.TB_Editora.Size = new System.Drawing.Size(606, 24);
-            this.TB_Editora.TabIndex = 10;
+            this.LB_Autor.AutoSize = true;
+            this.LB_Autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Autor.Location = new System.Drawing.Point(6, 57);
+            this.LB_Autor.Name = "LB_Autor";
+            this.LB_Autor.Size = new System.Drawing.Size(51, 18);
+            this.LB_Autor.TabIndex = 2;
+            this.LB_Autor.Text = "Autor: ";
             // 
-            // TB_Descricao
+            // LB_Titulo
             // 
-            this.TB_Descricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_Descricao.Location = new System.Drawing.Point(92, 106);
-            this.TB_Descricao.Multiline = true;
-            this.TB_Descricao.Name = "TB_Descricao";
-            this.TB_Descricao.Size = new System.Drawing.Size(606, 56);
-            this.TB_Descricao.TabIndex = 11;
+            this.LB_Titulo.AutoSize = true;
+            this.LB_Titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Titulo.Location = new System.Drawing.Point(6, 31);
+            this.LB_Titulo.Name = "LB_Titulo";
+            this.LB_Titulo.Size = new System.Drawing.Size(52, 18);
+            this.LB_Titulo.TabIndex = 1;
+            this.LB_Titulo.Text = "Título: ";
             // 
-            // LB_Disponibilidade
+            // TBPesquisa
             // 
-            this.LB_Disponibilidade.AutoSize = true;
-            this.LB_Disponibilidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_Disponibilidade.Location = new System.Drawing.Point(704, 31);
-            this.LB_Disponibilidade.Name = "LB_Disponibilidade";
-            this.LB_Disponibilidade.Size = new System.Drawing.Size(0, 18);
-            this.LB_Disponibilidade.TabIndex = 12;
+            this.TBPesquisa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TBPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBPesquisa.Location = new System.Drawing.Point(0, 0);
+            this.TBPesquisa.Margin = new System.Windows.Forms.Padding(2);
+            this.TBPesquisa.Multiline = true;
+            this.TBPesquisa.Name = "TBPesquisa";
+            this.TBPesquisa.Size = new System.Drawing.Size(828, 25);
+            this.TBPesquisa.TabIndex = 0;
+            this.TBPesquisa.Text = "Pesquisa";
+            this.TBPesquisa.TextChanged += new System.EventHandler(this.TB_Pesquisa_TextChanged);
+            this.TBPesquisa.Enter += new System.EventHandler(this.TB_Pesquisa_Enter);
+            this.TBPesquisa.Leave += new System.EventHandler(this.TB_Pesquisa_Leave);
             // 
             // MainForm
             // 
