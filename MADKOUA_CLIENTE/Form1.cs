@@ -22,12 +22,42 @@ namespace MADKOUA_CLIENTE
         DataTable tabela;
         DataTable livros;
         Requisitante requisitante;
+        AdicionaBD adiciona;        
         int livroSelecionado;
+        bool RequisitanteSelecionado;
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            livros = Livro.ListaLivros("Titulo", TBPesquisa.Text);
+            tabela = new DataTable();
+            requisitante = new Requisitante();
+            adiciona = new AdicionaBD();
+            RequisitanteSelecionado = false;
+
+            tabela.Columns.Add("ID", typeof(int));
+            tabela.Columns.Add("Titulo", typeof(String));
+            tabela.Columns.Add("Autor", typeof(String));
+            tabela.Columns.Add("Editora", typeof(String));
+
+            apresenta("");
+
+            DGVLivros.Columns[0].Width = 30;
+            DGVLivros.Columns[1].Width = DGVLivros.Width / 3 - 14;
+            DGVLivros.Columns[2].Width = DGVLivros.Width / 3 - 14;
+            DGVLivros.Columns[3].Width = DGVLivros.Width / 3 - 45;
+        }
 
         #region Metodos
 
         public void SetRequisitante(String codigoUtilizador) { requisitante.SetByCodigoUtilizador(codigoUtilizador); }
 
+        public void SetRequisitanteSelecionado(bool estado)
+        {
+            RequisitanteSelecionado = estado;
+            if(livroSelecionado != 0)
+            {
+                BTN_Requisitar.Enabled = true;
+            }
+        }
         private void apresenta(String pesquisa)
         {
             tabela.Clear();
@@ -63,24 +93,7 @@ namespace MADKOUA_CLIENTE
         #endregion
 
         #region Eventos
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            livros = Livro.ListaLivros("Titulo", TBPesquisa.Text);
-            tabela = new DataTable();
-            requisitante = new Requisitante();
 
-            tabela.Columns.Add("ID", typeof(int));
-            tabela.Columns.Add("Titulo", typeof(String));
-            tabela.Columns.Add("Autor", typeof(String));
-            tabela.Columns.Add("Editora", typeof(String));
-
-            apresenta("");
-
-            DGVLivros.Columns[0].Width = 30;
-            DGVLivros.Columns[1].Width = DGVLivros.Width / 3 - 14;
-            DGVLivros.Columns[2].Width = DGVLivros.Width / 3 - 14;
-            DGVLivros.Columns[3].Width = DGVLivros.Width / 3 - 45;
-        }
 
 
 
@@ -105,6 +118,8 @@ namespace MADKOUA_CLIENTE
                 
             }
 
+            if (RequisitanteSelecionado) BTN_Requisitar.Enabled = true;
+
 
         }
 
@@ -127,7 +142,12 @@ namespace MADKOUA_CLIENTE
         {
             Livro.DecrementaNLivrosDisp(livroSelecionado);
             AtualizaDisponibilidade();
-            MessageBox.Show(requisitante.Nome);
+
+            if(livroSelecionado != 0 && RequisitanteSelecionado)
+            {
+                adiciona.AdicionaRequisicao(new Livro(livroSelecionado), requisitante, DateTime.Now, DateTime.Now.AddDays(10), "PorLevantar");
+                MessageBox.Show("Requisicao adicionada. ");
+            }            
         }
 
 
@@ -138,6 +158,11 @@ namespace MADKOUA_CLIENTE
         {
             LoginUtilizador_Form loginUtilizador = new LoginUtilizador_Form(this);
             loginUtilizador.Show();                        
+        }
+
+        private void BTN_Requisicoes_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

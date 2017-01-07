@@ -26,6 +26,7 @@ namespace MADKOUA_CLIENTE
             if(Requisitante.Verifica(TB_CodigoUtilizador.Text, TB_Password.Text))
             {
                 _MainForm.SetRequisitante(TB_CodigoUtilizador.Text);
+                _MainForm.SetRequisitanteSelecionado(true);
                 Close();
             }
             else

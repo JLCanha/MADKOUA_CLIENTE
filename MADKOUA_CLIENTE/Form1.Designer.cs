@@ -44,6 +44,7 @@
             this.LB_Titulo = new System.Windows.Forms.Label();
             this.TBPesquisa = new System.Windows.Forms.TextBox();
             this.BTN_Login = new System.Windows.Forms.Button();
+            this.BTN_Requisicoes = new System.Windows.Forms.Button();
             this.PanelLeft.SuspendLayout();
             this.PanelDGV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVLivros)).BeginInit();
@@ -53,6 +54,7 @@
             // PanelLeft
             // 
             this.PanelLeft.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.PanelLeft.Controls.Add(this.BTN_Requisicoes);
             this.PanelLeft.Controls.Add(this.BTN_Login);
             this.PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeft.Location = new System.Drawing.Point(0, 0);
@@ -162,6 +164,7 @@
             // 
             // BTN_Requisitar
             // 
+            this.BTN_Requisitar.Enabled = false;
             this.BTN_Requisitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Requisitar.Location = new System.Drawing.Point(705, 126);
             this.BTN_Requisitar.Name = "BTN_Requisitar";
@@ -227,6 +230,17 @@
             this.BTN_Login.UseVisualStyleBackColor = true;
             this.BTN_Login.Click += new System.EventHandler(this.BTN_Login_Click);
             // 
+            // BTN_Requisicoes
+            // 
+            this.BTN_Requisicoes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_Requisicoes.Location = new System.Drawing.Point(0, 52);
+            this.BTN_Requisicoes.Name = "BTN_Requisicoes";
+            this.BTN_Requisicoes.Size = new System.Drawing.Size(53, 52);
+            this.BTN_Requisicoes.TabIndex = 1;
+            this.BTN_Requisicoes.Text = "Req";
+            this.BTN_Requisicoes.UseVisualStyleBackColor = true;
+            this.BTN_Requisicoes.Click += new System.EventHandler(this.BTN_Requisicoes_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +281,7 @@
         private System.Windows.Forms.TextBox TB_Editora;
         private System.Windows.Forms.Label LB_Disponibilidade;
         private System.Windows.Forms.Button BTN_Login;
+        private System.Windows.Forms.Button BTN_Requisicoes;
     }
 }
 
